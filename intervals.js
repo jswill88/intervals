@@ -24,7 +24,8 @@ const intervals = {
 };
 
 module.exports = (note, interval) => {
-  let newNote = note.charCodeAt(0) + parseInt(interval[1]) - 1;
+  let newNote = note.charCodeAt(0) +
+    parseInt(interval.split('').pop()) - 1;
   if (newNote > 71) { newNote -= 7; }
   newNote = String.fromCharCode(newNote);
   let change = 0;
