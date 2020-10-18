@@ -1,0 +1,25 @@
+{
+  "name": "intervals",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "watch": "nodemon app.js",
+    "test-watch": "jest --watchAll",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jswill88/intervals.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jswill88/intervals/issues"
+  },
+  "homepage": "https://github.com/jswill88/intervals#readme",
+  "dependencies": {
+    "jest": "^26.5.3"
+  }
+}
