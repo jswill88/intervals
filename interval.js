@@ -22,7 +22,9 @@ const invert = require('./invert');
 module.exports = (note, interval, direction) => {
   try {
     // make sure note and interval are strings
-
+    if(!(typeof note === 'string') || !(typeof interval === 'string')){
+      throw Error('Note and interval arguments must be strings');
+    }
     // make sure direction is up down ascending descending
 
     // write tests for intervals down

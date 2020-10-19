@@ -121,6 +121,7 @@ describe('augmented and diminished tests', () => {
 
 describe('Interval errors', () => {
   expect(() => interval('A','happy')).toThrowError();
+  expect(() => interval(4, 'P4')).toThrowError();
 });
 
 describe('It works with intervals greater than an octave', () => {
