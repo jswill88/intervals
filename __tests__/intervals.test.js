@@ -119,3 +119,7 @@ describe('augmented and diminished tests', () => {
   });
 });
 
+describe('Interval errors', () => {
+  expect(() => interval('A','happy')).toThrowError();
+});
+

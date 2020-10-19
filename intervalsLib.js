@@ -39,5 +39,12 @@ const notes = {
   G: 10,
 };
 
-module.exports = { intervals, notes };
+const intervalMatches = {
+  A: [1,2,3,4,5,6,7],
+  D: [1,2,3,4,5,6,7],
+  P: [1,4,5],
+  M: [2,3,6,7],
+};
+
+module.exports = { intervals, notes, intervalMatches };
 
