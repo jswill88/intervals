@@ -39,10 +39,15 @@ const notes = {
   G: 10,
 };
 
+/** Valid interval types for each interval quality */
 const intervalMatches = {
+  /** Augmented */
   A: [1,2,3,4,5,6,7],
+  /** Diminished */
   D: [1,2,3,4,5,6,7],
+  /** Perfect */
   P: [1,4,5],
+  /** Major and minor */
   M: [2,3,6,7],
 };
 

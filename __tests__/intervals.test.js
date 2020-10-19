@@ -59,7 +59,7 @@ describe('Interval tests', () => {
     expect(interval('F', 'M7')).toBe('E');
     expect(interval('Gx', 'M7')).toBe('Fx#');
   });
-  it.skip('can get a perfect octave', () => {
+  it('can get a perfect octave', () => {
     expect(interval('A#', 'P8')).toBe('A#');
     expect(interval('B', 'P8')).toBe('B');
     expect(interval('Cb', 'P8')).toBe('Cb');
@@ -121,5 +121,20 @@ describe('augmented and diminished tests', () => {
 
 describe('Interval errors', () => {
   expect(() => interval('A','happy')).toThrowError();
+});
+
+describe('It works with intervals greater than an octave', () => {
+  it('can handle 9s', () => {
+    expect(interval('A', 'm9')).toBe('Bb');
+    expect(interval('B','M9')).toBe('C#');
+  });
+  it('can handle 11s', () => {
+    expect(interval('C', 'A11')).toBe('F#');
+    expect(interval('Db','P11')).toBe('Gb');
+  });
+  it('can handle 13s', () => {
+    expect(interval('E#', 'M13')).toBe('Cx');
+    expect(interval('Fb','m13')).toBe('Dbb');
+  });
 });
 

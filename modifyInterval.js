@@ -9,9 +9,9 @@ const { intervalMatches } = require('./intervalsLib');
  * @returns { String } modified interval for interval
  *  function to process
  */
-module.exports = (interval) => {
+module.exports = interval => {
   if (interval.toUpperCase() === 'TT') { return 'A4'; }
-  let regex = /^([mMP]|d+|A+)\d+$/;
+  const regex = /^([mMP]|d+|A+)\d+$/;
   
   if (!regex.test(interval)) {
     throw Error('Not a valid interval input. The interval should be a string starting with the interval quality (m,M,P,A,d) followed by a number. "TT" can be used to get a tritone. Repeated "A"s or "d"s can be used to indicate doubly (or more) augmented or diminished intervals');
