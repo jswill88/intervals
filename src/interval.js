@@ -1,6 +1,6 @@
 const { intervals, notes } = require('./intervalsLib');
 const modifyInterval = require('./modifyInterval');
-const normalizeNote = require('./normalizeNote');
+const normalizeNote = require('../normalizeNote');
 const invert = require('./invert');
 
 /**
@@ -21,13 +21,16 @@ const invert = require('./invert');
 
 module.exports = (note, interval, direction) => {
   try {
-    // make sure note and interval are strings
+
     if(!(typeof note === 'string') || !(typeof interval === 'string')){
       throw Error('Note and interval arguments must be strings');
     }
-    // make sure direction is up down ascending descending
-
-    // write tests for intervals down
+    
+    if ( direction ) {
+      if(!['up','down','ascending','descending'].includes(direction)) {
+        throw Error('Direction must be "up", "down", "ascending", or "descending". The default is "up"');
+      }
+    }
 
     const normalizedNote = normalizeNote(note);
     let scopedInterval = modifyInterval(interval);

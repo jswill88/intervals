@@ -2,7 +2,7 @@
   "name": "intervals",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/interval.js",
   "scripts": {
     "start": "node index.js",
     "watch": "nodemon app.js",

@@ -1,4 +1,4 @@
-const interval = require('../interval');
+const interval = require('../src/interval');
 
 describe('Interval tests', () => {
   it('can get a Perfect 1', () => {
@@ -32,6 +32,10 @@ describe('Interval tests', () => {
   it('can get an augmented 4th', () => {
     expect(interval('Eb', 'A4')).toBe('A');
     expect(interval('F#', 'A4')).toBe('B#');
+  });
+  it('can get a tritone', () => {
+    expect(interval('A', 'TT')).toBe('D#');
+    expect(interval('B', 'tt')).toBe('E#');
   });
   it('can get an diminished 5th', () => {
     expect(interval('G', 'd5')).toBe('Db');
@@ -119,9 +123,15 @@ describe('augmented and diminished tests', () => {
   });
 });
 
-describe('Interval errors', () => {
+describe('Errors', () => {
   expect(() => interval('A','happy')).toThrowError();
+  expect(() => interval('A','M4')).toThrowError();
   expect(() => interval(4, 'P4')).toThrowError();
+  expect(() => interval('Bb', {})).toThrowError();
+  expect(() => interval('A', 'P1', 'hug')).toThrowError();
+  expect(() => interval('A', 'P1', 5)).toThrowError();
+  expect(() => interval('A', 'P1', 'up')).not.toThrowError();
+  expect(() => interval('A', 'P1', 'ascending')).not.toThrowError();
 });
 
 describe('It works with intervals greater than an octave', () => {
@@ -139,3 +149,15 @@ describe('It works with intervals greater than an octave', () => {
   });
 });
 
+describe('Tests for intervals down', () => {
+  it('can do 2nds through 5ths down', () => {
+    expect(interval('Ab', 'm2', 'down')).toBe('G');
+    expect(interval('B', 'M3', 'descending')).toBe('G');
+    expect(interval('Dx', 'd4', 'descending')).toBe('Ax#');
+    expect(interval('Cb', 'P5', 'descending')).toBe('Fb');
+  });
+  it('can do 6ths and 7ths down', () => {
+    expect(interval('E', 'A6', 'down')).toBe('Gb');
+    expect(interval('F','M7', 'descending')).toBe('Gb');
+  });
+});
