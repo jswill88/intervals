@@ -1,32 +1,39 @@
 const { intervals, notes } = require('./intervalsLib');
 const modifyInterval = require('./modifyInterval');
 const normalizeNote = require('./normalizeNote');
+const invert = require('./invert');
 
 /**
  * @name interval
  * @description Finds a note at the given interval from
  * a note input
  * 
- * @param {String} note The starting note of the interval: 
+ * @param { String } note The starting note of the interval: 
  * 'Bb', 'a', 'C#', 'Fx'
- * @param {String} interval The type of interval: 'M6', 'm3',
+ * @param { String } interval The type of interval: 'M6', 'm3',
  * 'A5', 'd7', 'P4'. Interval quality is case sensitive
- * @param {String} [direction = 'up'] - The direction of the 
+ * @param { String } [direction = 'up'] - The direction of the 
  * interval. Pass 'down' or 'descending' as third argument to 
  * get a descending interval
  * 
- * @returns {String} Note name at the interval distance from note input
+ * @returns { String } Note name at the interval distance from note input
  */
 
 module.exports = (note, interval, direction) => {
   try {
     // make sure note and interval are strings
 
-    const normalizedNote = normalizeNote(note);
-    const scopedInterval = modifyInterval(interval);
+    // make sure direction is up down ascending descending
 
-    // handle direction in helper function
-    // if direction === 'down' || 'descending'
+    // write tests for intervals down
+
+    const normalizedNote = normalizeNote(note);
+    let scopedInterval = modifyInterval(interval);
+
+    if (direction === 'down' || direction === 'descending') {
+      scopedInterval = invert(scopedInterval);
+    }
+
     let noteCode = normalizedNote.charCodeAt(0) +
       parseInt(scopedInterval.split('').pop()) - 1;
     if (noteCode > 71) { noteCode -= 7; }

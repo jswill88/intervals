@@ -1,1 +1,1 @@
-# intervals
+# Music Intervals
