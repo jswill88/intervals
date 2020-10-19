@@ -1,5 +1,6 @@
 const { intervals, notes } = require('./intervalsLib');
 const modifyInterval = require('./modifyInterval');
+const normalizeNote = require('./normalizeNote');
 
 /**
  * @name interval
@@ -19,19 +20,21 @@ const modifyInterval = require('./modifyInterval');
 
 module.exports = (note, interval, direction) => {
   try {
-    // let scopedInterval = modifyInterval(interval)
     // make sure note and interval are strings
-    // make note uppercase
+
+    const normalizedNote = normalizeNote(note);
+    const scopedInterval = modifyInterval(interval);
+
     // handle direction in helper function
     // if direction === 'down' || 'descending'
-    let noteCode = note.charCodeAt(0) +
-      parseInt(interval.split('').pop()) - 1;
+    let noteCode = normalizedNote.charCodeAt(0) +
+      parseInt(scopedInterval.split('').pop()) - 1;
     if (noteCode > 71) { noteCode -= 7; }
     let newNote = String.fromCharCode(noteCode);
 
     let change = 0;
-    for (let i = 1; i < note.length; i++) {
-      switch (note[i]) {
+    for (const accidental of normalizedNote) {
+      switch (accidental) {
         case 'b':
           change--;
           break;
@@ -49,10 +52,10 @@ module.exports = (note, interval, direction) => {
     let stop = false;
 
     let newNoteNum = parseInt(notes[newNote[0]]);
-    let noteNum = parseInt(notes[note[0]]) + change;
-    let intervalNum = intervals[interval];
+    let noteNum = parseInt(notes[normalizedNote[0]]) + change;
+    let intervalNum = intervals[scopedInterval];
 
-    if (newNoteNum <= noteNum && note[0] !== newNote[0]) {
+    if (newNoteNum <= noteNum && normalizedNote[0] !== newNote[0]) {
       newNoteNum += 12;
     }
     if (change <= 0) {
