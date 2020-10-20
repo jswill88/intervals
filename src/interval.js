@@ -21,13 +21,16 @@ const invert = require('./invert');
 
 module.exports = (note, interval, direction) => {
   try {
-    // make sure note and interval are strings
+
     if(!(typeof note === 'string') || !(typeof interval === 'string')){
       throw Error('Note and interval arguments must be strings');
     }
-    // make sure direction is up down ascending descending
-
-    // write tests for intervals down
+    
+    if ( direction ) {
+      if(!['up','down','ascending','descending'].includes(direction)) {
+        throw Error('Direction must be "up", "down", "ascending", or "descending". The default is "up"');
+      }
+    }
 
     const normalizedNote = normalizeNote(note);
     let scopedInterval = modifyInterval(interval);
@@ -57,12 +60,26 @@ module.exports = (note, interval, direction) => {
           break;
       }
     }
+    for (let i = 1; i < scopedInterval.length - 1; i++) {
+      switch (scopedInterval[i]) {
+        case 'd':
+          console.log('in right part of switch');
+          change--;
+          break;
+        case 'A':
+          change++;
+          break;
+        default:
+          break;
+      }
+    }
 
     let stop = false;
 
     let newNoteNum = parseInt(notes[newNote[0]]);
     let noteNum = parseInt(notes[normalizedNote[0]]) + change;
-    let intervalNum = intervals[scopedInterval];
+    let baseInterval = scopedInterval[0] + scopedInterval[scopedInterval.length - 1];
+    let intervalNum = intervals[baseInterval];
 
     if (newNoteNum <= noteNum && normalizedNote[0] !== newNote[0]) {
       newNoteNum += 12;
