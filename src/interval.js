@@ -63,7 +63,6 @@ module.exports = (note, interval, direction) => {
     for (let i = 1; i < scopedInterval.length - 1; i++) {
       switch (scopedInterval[i]) {
         case 'd':
-          console.log('in right part of switch');
           change--;
           break;
         case 'A':
@@ -118,5 +117,4 @@ module.exports = (note, interval, direction) => {
 
   }
 };
-
 
