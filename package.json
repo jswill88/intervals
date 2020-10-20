@@ -28,5 +28,6 @@
     "theory",
     "notes",
     "intervals"
-  ]
+  ],
+  "bin": { "interval": "interval.js" }
 }

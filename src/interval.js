@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const { intervals, notes } = require('./intervalsLib');
 const modifyInterval = require('./modifyInterval');
 const normalizeNote = require('./normalizeNote');
