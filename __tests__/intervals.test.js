@@ -161,3 +161,21 @@ describe('Tests for intervals down', () => {
     expect(interval('F','M7', 'descending')).toBe('Gb');
   });
 });
+
+describe('Tests for doubly diminished and augmented', () => {
+  it('can handle doubly diminished intervals', () => {
+    expect(interval('C#', 'dd4')).toBe('Fb');
+    expect(interval('A', 'dd2')).toBe('Bbbb');
+  });
+  it('can handle doubly augmented intervals', () => {
+    expect(interval('Gb', 'AA3')).toBe('B#');
+    expect(interval('D', 'AA7')).toBe('Cx#');
+  });
+  it('can handle inverted doubly diminished', () => {
+    expect(true).toBe(false);
+  });
+  it('can handle inverted doubly augmented', () => {
+    expect(true).toBe(false);
+  });
+});
+

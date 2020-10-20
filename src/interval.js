@@ -1,6 +1,6 @@
 const { intervals, notes } = require('./intervalsLib');
 const modifyInterval = require('./modifyInterval');
-const normalizeNote = require('../normalizeNote');
+const normalizeNote = require('./normalizeNote');
 const invert = require('./invert');
 
 /**
@@ -60,12 +60,26 @@ module.exports = (note, interval, direction) => {
           break;
       }
     }
+    for (let i = 1; i < scopedInterval.length - 1; i++) {
+      switch (scopedInterval[i]) {
+        case 'd':
+          console.log('in right part of switch');
+          change--;
+          break;
+        case 'A':
+          change++;
+          break;
+        default:
+          break;
+      }
+    }
 
     let stop = false;
 
     let newNoteNum = parseInt(notes[newNote[0]]);
     let noteNum = parseInt(notes[normalizedNote[0]]) + change;
-    let intervalNum = intervals[scopedInterval];
+    let baseInterval = scopedInterval[0] + scopedInterval[scopedInterval.length - 1];
+    let intervalNum = intervals[baseInterval];
 
     if (newNoteNum <= noteNum && normalizedNote[0] !== newNote[0]) {
       newNoteNum += 12;

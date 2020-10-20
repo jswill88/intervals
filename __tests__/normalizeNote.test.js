@@ -1,4 +1,4 @@
-const normalizeNote = require('../normalizeNote');
+const normalizeNote = require('../src/normalizeNote');
 
 describe('Normalize note tests', () => {
   it('throws errors for bad notes', () => {

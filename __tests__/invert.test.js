@@ -1,4 +1,4 @@
-const invert = require('../invert');
+const invert = require('../src/invert');
 
 describe('Invert function tests', () => {
   it('can inverse intervals correctly', () => {
