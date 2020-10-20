@@ -1,7 +1,7 @@
 {
-  "name": "intervals",
+  "name": "@joshuawilliams/interval",
   "version": "1.0.0",
-  "description": "",
+  "description": "Find any music interval. Enter the note, the interval, and can specify if you want a downward interval. The enharmonically correct note name will be returned. ### Example: ```js",
   "main": "src/interval.js",
   "scripts": {
     "start": "node index.js",
@@ -13,13 +13,20 @@
     "type": "git",
     "url": "git+https://github.com/jswill88/intervals.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Josh Williams",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/jswill88/intervals/issues"
   },
   "homepage": "https://github.com/jswill88/intervals#readme",
   "dependencies": {
     "jest": "^26.5.3"
-  }
+  },
+  "devDependencies": {},
+  "keywords": [
+    "music",
+    "theory",
+    "notes",
+    "intervals"
+  ]
 }
