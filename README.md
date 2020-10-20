@@ -46,7 +46,7 @@ interval('F','AA5') // => 'Cx'
 1. The third argument can be used to indicate a descending interval with either `'down'` or `'descending'`
 ### Interval options: 
 | Quality | Description| Number options |
-|--- | -- |-- |
+| -- | -- |-- |
 | `P` | Perfect | 1, 4, 5, 8, 11, 12, etc. |
 | `m` | minor | 2, 3, 6, 7, 9, 10, 13, etc. |
 | `M` | Major | 2, 3, 6, 7, 9, 10, 13, etc. |
