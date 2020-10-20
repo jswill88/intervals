@@ -1,6 +1,6 @@
 {
   "name": "@joshuawilliams/interval",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Find any music interval. Enter the note, the interval, and can specify if you want a downward interval. The enharmonically correct note name will be returned. ### Example: ```js",
   "main": "src/interval.js",
   "scripts": {
@@ -25,9 +25,11 @@
   "devDependencies": {},
   "keywords": [
     "music",
-    "theory",
+    "music theory",
     "notes",
-    "intervals"
+    "interval",
+    "scales",
+    "chords"
   ],
-  "bin": { "interval": "interval.js" }
+  "bin": { "interval": "src/interval.js" }
 }
