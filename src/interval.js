@@ -56,8 +56,8 @@ module.exports = (note, interval, direction) => {
     let noteNum = parseInt(notes[normalizedNote[0]]) + offset;
 
     /**  For doubly diminished and augmented intervals, 
-     * this ensures that an correctly formatted interval 
-     * will used to check against the interval map
+     * this ensures that a correctly formatted interval 
+     * will be used to check against the interval map
     */
     let baseInterval = scopedInterval[0] + scopedInterval.split('').pop();
 
