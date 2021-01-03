@@ -1,7 +1,7 @@
 {
   "name": "@joshuawilliams/interval",
   "version": "1.0.3",
-  "description": "Find any music interval. Enter the note, the interval, and can specify if you want a downward interval. The enharmonically correct note name will be returned. ### Example: ```js",
+  "description": "Find any music interval. Enter the note, the interval, and can specify if you want a downward interval. The enharmonically correct note name will be returned.",
   "main": "src/interval.js",
   "scripts": {
     "start": "node index.js",
