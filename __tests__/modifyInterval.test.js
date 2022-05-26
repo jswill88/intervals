@@ -1,4 +1,4 @@
-const modifyInterval = require('../modifyInterval');
+const modifyInterval = require('../src/modifyInterval');
 
 describe('modify interval tests', () => {
   it('can deal with tritone notation', () => {
